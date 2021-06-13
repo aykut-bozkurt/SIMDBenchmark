@@ -36,7 +36,6 @@ BENCHMARK_DEFINE_F(FPSqrtFixture, SIMDTest)(benchmark::State& state) {
             store(result + i, xmmC);
         }
     }
-    state.SetComplexityN(state.range(0));
 }
 BENCHMARK_REGISTER_F(FPSqrtFixture, SIMDTest)->RangeMultiplier(2)->Range(2, 1<<14);
 

@@ -34,7 +34,6 @@ BENCHMARK_DEFINE_F(FPReduceFixture, SIMDTest)(benchmark::State& state) {
             benchmark::DoNotOptimize(acc += reduce_add(xmmA));
         }
     }
-    state.SetComplexityN(state.range(0));
 }
 BENCHMARK_REGISTER_F(FPReduceFixture, SIMDTest)->RangeMultiplier(2)->Range(2, 1<<14);
 
