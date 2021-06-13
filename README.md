@@ -1,2 +1,12 @@
 # SIMDBenchmark
-benchmarking simd operations using google benchmark
+Benchmark app for simd operations given by libsimdpp and nonSIMD equivalent operations
+
+https://github.com/google/benchmark is licenced under [Apache License](benchmark/LICENSE).
+https://github.com/p12tic/libsimdpp is licenced under [Boost Software License - Version 1.0](libsimdpp/LICENSE_1_0.txt).
+
+### Build requirements
+CMake
+
+### How to Build
+Pick a Release profile and build *Google_benchmarks_run* target after cmake project is loaded.
+Unless you select Release build, benchmark results are far from reality.
