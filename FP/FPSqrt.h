@@ -3,7 +3,7 @@
 #include <benchmark/benchmark.h>
 #include <simdpp/simd.h>
 #include <cmath>
-#include "comvars.h"
+#include "../comvars.h"
 
 class FPSqrtFixture : public benchmark::Fixture {
  public:
@@ -19,7 +19,6 @@ class FPSqrtFixture : public benchmark::Fixture {
   static void TearDown() {
 
   }
- private:
 };
 float FPSqrtFixture::vec_a[maxSize];
 float FPSqrtFixture::result[maxSize];
@@ -37,7 +36,7 @@ BENCHMARK_DEFINE_F(FPSqrtFixture, SIMDTest)(benchmark::State& state) {
         }
     }
 }
-BENCHMARK_REGISTER_F(FPSqrtFixture, SIMDTest)->RangeMultiplier(2)->Range(2, 1<<14);
+BENCHMARK_REGISTER_F(FPSqrtFixture, SIMDTest)->RangeMultiplier(2)->Range(4, 1<<14);
 
 BENCHMARK_DEFINE_F(FPSqrtFixture, ScalarTest)(benchmark::State& state) {
     init_vector(vec_a, state.range(0));
@@ -50,4 +49,4 @@ BENCHMARK_DEFINE_F(FPSqrtFixture, ScalarTest)(benchmark::State& state) {
         }
     }
 }
-BENCHMARK_REGISTER_F(FPSqrtFixture, ScalarTest)->RangeMultiplier(2)->Range(2, 1<<14);
+BENCHMARK_REGISTER_F(FPSqrtFixture, ScalarTest)->RangeMultiplier(2)->Range(4, 1<<14);

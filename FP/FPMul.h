@@ -2,7 +2,7 @@
 
 #include <benchmark/benchmark.h>
 #include <simdpp/simd.h>
-#include "comvars.h"
+#include "../comvars.h"
 
 class FPMulFixture : public benchmark::Fixture {
  public:
@@ -40,7 +40,7 @@ BENCHMARK_DEFINE_F(FPMulFixture, SIMDTest)(benchmark::State& state) {
         }
     }
 }
-BENCHMARK_REGISTER_F(FPMulFixture, SIMDTest)->RangeMultiplier(2)->Range(2, 1<<14);
+BENCHMARK_REGISTER_F(FPMulFixture, SIMDTest)->RangeMultiplier(2)->Range(4, 1<<14);
 
 BENCHMARK_DEFINE_F(FPMulFixture, ScalarTest)(benchmark::State& state) {
     init_vector(vec_a, state.range(0));
@@ -54,4 +54,4 @@ BENCHMARK_DEFINE_F(FPMulFixture, ScalarTest)(benchmark::State& state) {
         }
     }
 }
-BENCHMARK_REGISTER_F(FPMulFixture, ScalarTest)->RangeMultiplier(2)->Range(2, 1<<14);
+BENCHMARK_REGISTER_F(FPMulFixture, ScalarTest)->RangeMultiplier(2)->Range(4, 1<<14);

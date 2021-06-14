@@ -2,7 +2,7 @@
 
 #include <benchmark/benchmark.h>
 #include <simdpp/simd.h>
-#include "comvars.h"
+#include "../comvars.h"
 
 class FPReduceFixture : public benchmark::Fixture {
  public:
@@ -18,7 +18,6 @@ class FPReduceFixture : public benchmark::Fixture {
   static void TearDown() {
 
   }
- private:
 };
 float FPReduceFixture::vec_a[maxSize];
 int FPReduceFixture::acc = 0;
@@ -35,7 +34,7 @@ BENCHMARK_DEFINE_F(FPReduceFixture, SIMDTest)(benchmark::State& state) {
         }
     }
 }
-BENCHMARK_REGISTER_F(FPReduceFixture, SIMDTest)->RangeMultiplier(2)->Range(2, 1<<14);
+BENCHMARK_REGISTER_F(FPReduceFixture, SIMDTest)->RangeMultiplier(2)->Range(4, 1<<14);
 
 BENCHMARK_DEFINE_F(FPReduceFixture, ScalarTest)(benchmark::State& state) {
     init_vector(vec_a, state.range(0));
@@ -48,4 +47,4 @@ BENCHMARK_DEFINE_F(FPReduceFixture, ScalarTest)(benchmark::State& state) {
         }
     }
 }
-BENCHMARK_REGISTER_F(FPReduceFixture, ScalarTest)->RangeMultiplier(2)->Range(2, 1<<14);
+BENCHMARK_REGISTER_F(FPReduceFixture, ScalarTest)->RangeMultiplier(2)->Range(4, 1<<14);
