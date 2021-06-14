@@ -15,4 +15,3 @@ Unless you select Release build, benchmark results are far from reality.
 
 ### Which Instruction Set Will Be Used?
 While loading cmake project source file, instruction set will be detected automataically based on your architecture. It will choose the fastest available instruction set on your hardware.
-AVX, SSE2 or loop if none supported
