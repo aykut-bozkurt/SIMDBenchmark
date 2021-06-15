@@ -54,5 +54,3 @@ BENCHMARK_DEFINE_F(FPAddFixture, ScalarTest)(benchmark::State& state) {
     }
 }
 BENCHMARK_REGISTER_F(FPAddFixture, ScalarTest)->RangeMultiplier(2)->Range(4, 1<<14);
-
-

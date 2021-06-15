@@ -3,7 +3,6 @@
 #include <benchmark/benchmark.h>
 #include <simdpp/simd.h>
 #include "../comvars.h"
-#include <iostream>
 
 class IntAddFixture : public benchmark::Fixture {
     public:
